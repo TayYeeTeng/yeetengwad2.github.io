@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Image Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Interactive Image Gallery</h1>
+        <div id="imageSlots">
+            <!-- Image slots will be populated by JavaScript -->
+        </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="close">&times;</span>
+        <img class="lightbox-content" id="lightboxImg">
+        <div id="caption"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+<style>
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to bottom right, #74ebd5, #9face6);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #fff;
+}
+
+.container {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 90%;
+    max-width: 1200px;
+}
+
+h1 {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+#imageSlots {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.image-slot {
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+}
+
+.image-slot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-slot:hover {
+    transform: scale(1.05);
+}
+
+.image-slot .caption {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+    font-size: 0.9em;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image-slot:hover .caption {
+    opacity: 1;
+}
+
+/* Lightbox Modal */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    border-radius: 10px;
+}
+
+#caption {
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    font-size: 1.2em;
+}
+
+.lightbox .close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.lightbox .close:hover,
+.lightbox .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const imageFolder = './images'; // Update this path to match the location of your images
+    const imageSlots = document.getElementById('imageSlots');
+
+    // List of image filenames and captions (customize as needed)
+    const images = [
+        {src: 'justin1_720.jpg', caption: 'Beautiful JB 1'},
+        {src: 'justin2_720.png', caption: 'Beautiful JB 2'},
+        {src: 'justin3_720.jpg', caption: 'Beautiful JB 3'},
+        {src: 'justin4_720.jpg', caption: 'Beautiful JB 4'},
+        {src: 'justin5_720.jpg', caption: 'Beautiful JB 5'},
+        {src: 'justin6_720.jpg', caption: 'Beautiful JB 6'}
+    ];
+
+    // Create image slots and populate them
+    images.forEach((image) => {
+        const slot = document.createElement('div');
+        slot.className = 'image-slot';
+
+        const img = document.createElement('img');
+        img.src = `${imageFolder}/${image.src}`;
+        img.alt = image.caption;
+
+        const caption = document.createElement('div');
+        caption.className = 'caption';
+        caption.textContent = image.caption;
+
+        slot.appendChild(img);
+        slot.appendChild(caption);
+        imageSlots.appendChild(slot);
+
+        // Add click event to open image in lightbox
+        slot.addEventListener('click', function() {
+            openLightbox(image.src, image.caption);
+        });
+    });
+
+    // Lightbox functionality
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const captionText = document.getElementById('caption');
+    const closeLightbox = document.querySelector('.lightbox .close');
+
+    function openLightbox(src, caption) {
+        lightbox.style.display = 'block';
+        lightboxImg.src = `${imageFolder}/${src}`;
+        captionText.textContent = caption;
+    }
+
+    closeLightbox.addEventListener('click', function() {
+        lightbox.style.display = 'none';
+    });
+
+    // Close lightbox when clicking outside the image
+    lightbox.addEventListener('click', function(event) {
+        if (event.target === lightbox) {
+            lightbox.style.display = 'none';
+        }
+    });
+});
+
+
+</script>

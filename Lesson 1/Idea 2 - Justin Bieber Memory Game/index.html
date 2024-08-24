@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Match Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Memory Match Game</h1>
+        <div class="info">
+            <span id="pairCounter">Pairs Matched: 0</span>
+            <span id="timer">Time: 0s</span>
+            <button id="resetButton" class="reset-btn">Reset Game</button>
+        </div>
+        <div id="gameBoard" class="game-board"></div>
+    </div>
+
+    <!-- Popup Modal -->
+    <div id="winModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Congratulations!</h2>
+            <p>You matched all pairs!</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+<style>
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to bottom right, #74ebd5, #9face6);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #000000;
+}
+
+.container {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 90%;
+    max-width: 800px;
+}
+
+h1 {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 20px; /* Adjusted for better spacing */
+    justify-items: center; /* Centers the cards horizontally */
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    perspective: 1000px;
+    width: 120px; /* Adjust card size */
+    height: 160px; /* Adjust card size */
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 12px;
+}
+
+.card-front {
+    background-color: #2e3a87;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2em;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    overflow: hidden;
+}
+
+.card-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.modal {
+    display: none; /* Hide the modal initially */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: hidden;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.reset-btn {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 0;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.reset-btn:hover {
+    background-color: #45a049;
+}
+
+/* Existing styles... */
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#pairCounter,
+#timer {
+    font-size: 1.2em;
+    color: #fff;
+}
+
+</style>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    const imageFolder = 'images'; // Path to your images folder
+    const gameBoard = document.getElementById('gameBoard');
+    const winModal = document.getElementById('winModal');
+    const closeBtn = document.querySelector('.close-btn');
+    const resetButton = document.getElementById('resetButton');
+    const pairCounter = document.getElementById('pairCounter');
+    const timerDisplay = document.getElementById('timer');
+
+    let images = [
+        'justin1_720.jpg',
+        'justin2_720.png',
+        'justin3_720.jpg',
+        'justin4_720.jpg',
+        'justin5_720.jpg',
+        'justin6_720.jpg'
+    ];
+
+    let shuffledImages;
+    let flippedCards = [];
+    let matchedPairs = 0;
+    let timerInterval;
+    let secondsElapsed = 0;
+
+    function startGame() {
+        // Clear the game board and reset counter and timer
+        gameBoard.innerHTML = '';
+        matchedPairs = 0;
+        pairCounter.textContent = `Pairs Matched: ${matchedPairs}`;
+        secondsElapsed = 0;
+        timerDisplay.textContent = `Time: ${secondsElapsed}s`;
+
+        // Start timer
+        if (timerInterval) {
+            clearInterval(timerInterval);
+        }
+        timerInterval = setInterval(updateTimer, 1000);
+
+        // Double the array to have pairs and shuffle
+        shuffledImages = shuffleArray(images.concat(images));
+
+        // Create the game board
+        shuffledImages.forEach((image, index) => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.dataset.image = image;
+
+            const cardInner = document.createElement('div');
+            cardInner.className = 'card-inner';
+
+            const cardFront = document.createElement('div');
+            cardFront.className = 'card-front';
+            cardFront.textContent = "?";
+
+            const cardBack = document.createElement('div');
+            cardBack.className = 'card-back';
+
+            const img = document.createElement('img');
+            img.src = `${imageFolder}/${image}`;
+            img.alt = image;
+
+            cardBack.appendChild(img);
+            cardInner.appendChild(cardFront);
+            cardInner.appendChild(cardBack);
+            card.appendChild(cardInner);
+            gameBoard.appendChild(card);
+
+            // Add click event to flip the card
+            card.addEventListener('click', function() {
+                if (flippedCards.length < 2 && !card.classList.contains('flipped')) {
+                    flipCard(card);
+                }
+            });
+        });
+    }
+
+    function flipCard(card) {
+        card.classList.add('flipped');
+        flippedCards.push(card);
+
+        if (flippedCards.length === 2) {
+            setTimeout(checkForMatch, 800);
+        }
+    }
+
+    function checkForMatch() {
+        const [card1, card2] = flippedCards;
+        if (card1.dataset.image === card2.dataset.image) {
+            matchedPairs++;
+            pairCounter.textContent = `Pairs Matched: ${matchedPairs}`;
+            if (matchedPairs === images.length) {
+                setTimeout(() => showWinPopup(), 500);
+                clearInterval(timerInterval); // Stop the timer
+            }
+        } else {
+            card1.classList.remove('flipped');
+            card2.classList.remove('flipped');
+        }
+        flippedCards = [];
+    }
+
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+
+    function showWinPopup() {
+        winModal.style.display = 'flex';
+        confetti();
+    }
+
+    function closeModal() {
+        winModal.style.display = 'none';
+    }
+
+    function updateTimer() {
+        secondsElapsed++;
+        timerDisplay.textContent = `Time: ${secondsElapsed}s`;
+    }
+
+    function confetti() {
+        const duration = 5 * 1000;
+        const end = Date.now() + duration;
+
+        (function frame() {
+            confetti({
+                particleCount: 3,
+                angle: 60,
+                spread: 55,
+                origin: { x: 0 }
+            });
+            confetti({
+                particleCount: 3,
+                angle: 120,
+                spread: 55,
+                origin: { x: 1 }
+            });
+
+            if (Date.now() < end) {
+                requestAnimationFrame(frame);
+            }
+        }());
+    }
+
+    closeBtn.onclick = closeModal;
+
+    window.onclick = function(event) {
+        if (event.target == winModal) {
+            closeModal();
+        }
+    };
+
+    resetButton.addEventListener('click', startGame);
+
+    // Start the game when the page loads
+    startGame();
+});
+
+
+</script>
