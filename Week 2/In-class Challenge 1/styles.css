@@ -1,0 +1,84 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-image: linear-gradient(#b8e5ee, #f0e19a);
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    display: block;
+    margin: auto;
+}
+
+/* Header Styles */
+header h1 {
+    font-style: bold;
+    font-weight: 700;
+    font-size: 3em;
+    color:rgb(197, 15, 15);
+    text-align: center;
+}
+
+/* Image Styles */
+.celebrity-image {
+    width: 70%;
+    height: auto;
+    border-radius: 20px;
+    border: 2px solid #333;
+    display: block;
+    margin:auto;
+}
+
+.celebrity-image:hover {
+    transform: rotate(45deg);
+}
+
+/* Text Styles */
+p {
+    font-size: 0.8em;
+    color: #001a8f;
+    line-height: 1.3;
+}
+
+/* Button Styles */
+button.learn-more {
+    background-color: #b8e5ee;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin:auto;
+    color:black;
+}
+
+/* Button Styles when hover over */
+button.learn-more:hover {
+    background-color: #4c727a;
+    color:white;
+}
+
+button a {
+    text-decoration: none;
+}
+
+/* Footer Styles */
+footer {
+    font-size: 1em;
+    background: #c4b789;
+    padding: 20px 40px;
+    text-align: center;
+    color:black;
+    margin: -20px;
+    margin-top: 30px;
+}
+
+footer p {
+    color:black;
+}

@@ -1,0 +1,79 @@
+/* Element Selectors */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #222222;
+    text-align: center;
+}
+
+p {
+    color: #073cfa;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Class Selectors */
+.highlight {
+    background-color: lightgoldenrodyellow;
+    color:red;
+}
+
+/* ID Selectors */
+#main-header {
+    font-size: 15px;
+    border: 2px solid black;
+    color:#ffffff;
+    background-image: linear-gradient(to right, #ef52da, #aef8f3);
+    /* background-color: #ef52da; */
+    text-align: center;
+    padding: 30px 20px;
+    border-radius: 20px;
+}
+
+/* Combining Selectors */
+p.highlight {
+    color:red;
+    font-weight: 700;
+    border-radius: 20px;
+}
+
+/* Combining Selectors */
+h1#sub-header {
+    text-decoration: underline;
+    font-style: italic;
+    border-radius: 20px;
+}
+
+/* Element Styling */
+.celebrity-image {
+    width: 50%;
+    border-radius: 10px;
+    border: 5px dotted #444444;
+    display: block;
+    margin: auto;
+}
+
+footer {
+    text-align: center;
+    color: #888888;
+    margin-top: 20px;
+}
+
+ul {
+    line-height: 1.6;
+}
+
+span.highlight {
+    color:black;
+}
+
+#outer-box {
+    border: 3px solid red;
+    /* max-width: 700x; */
+    width: 700x;
+}

@@ -1,0 +1,62 @@
+/* General Styles */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 2em;
+    color: #222222;
+}
+
+.celebrity-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 5px solid #555555;
+}
+
+footer {
+    text-align: center;
+    font-size: 0.8em;
+    color: #888888;
+    margin-top: 20px;
+}
+
+
+/* YOUR CODE GOES BELOW */
+
+.fixed-element {
+    position: fixed;
+    background-color: #b2ff54;
+    color: #9a0ab0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #00000080;
+    bottom: 10px;
+    right: 10px;
+}
+
+.relative-element {
+    position:relative;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    border: 2px solid #444444;
+    left: 10px;
+    top: 10px;
+}
+
+.badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #ffdd00;
+    padding: 10px 20px;
+    border-radius: 50%;
+    font-weight: bold;
+}
