@@ -87,22 +87,11 @@
         .bottom-box > ul > li {
             border-bottom: 3px dotted black;
             font-family: Arial, Helvetica, sans-serif;
-        }
-
-        .bottom-box > ul > li:nth-last-child(1)[--nth-word="3"]{
-            color:red;
-            font-style:italic;
-            text-decoration: line-through;
-        }
-
-        .bottom-box > ul > li:nth-last-child(1)[--nth-word="4"]{
-            color:blue;
-            font-weight: 700;
+            list-style-position: inside;
         }
 
         .bottom-box > ul {
             list-style-image: url(images/justin_list_button.png);
-            margin-left: 50px;
         }
 
         .love-box {
@@ -181,7 +170,7 @@
             <ul>
                 <li>Talented</li>
                 <li>Handsome</li>
-                <li>He is single married</li>
+                <li>He is <span style="color:red; text-decoration: line-through; font-style: italic;">single</span> <span style="color:blue; font-weight: 700;">married</span></li>
             </ul>
         </div>
 
