@@ -1,0 +1,65 @@
+/* DO NOT MODIFY THE BELOW CSS STYLING */
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+/* YOU MAY MODIFY THIS */
+#floor {
+    width: 600px;
+    height: 420px;
+    background-color: aqua;
+    border: 1px solid black;
+    position: relative;
+    flex-direction: column; /* Ensure rows stack vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+}
+
+body, html {
+    height: 100%; /* Ensure the body takes up the full viewport height */
+    display: flex; /* Use Flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+/* YOU MAY MODIFY THIS */
+.dining-table {
+    background-color: pink;
+    height: 100px;
+    width: 125px;
+    margin: 20px;
+}
+
+
+/* YOU MAY MODIFY THIS */
+.row {
+    display: flex;
+    
+}
+
+
+/* YOU MAY MODIFY THIS */
+.buffet-corner {
+    width: 260px;
+    height: 100px;
+    background-color: green;
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+}
+
+
+/* YOU MAY MODIFY THIS */
+.cashier-table {
+    bottom: 20px;
+    right: 20px;
+    position: absolute;
+    width: 110px;
+    height: 100px;
+    background-color: grey;
+}
+
+
+/* YOU MAY ADD MORE CSS STYLING ANYWHERE IN THIS FILE */

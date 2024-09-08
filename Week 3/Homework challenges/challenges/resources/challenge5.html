@@ -1,0 +1,212 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Challenge 5 - Joe Resume</title>
+
+    <!-- How do we refer to Bootstrap CDN? 
+        Go to Bootstrap 4 website: https://getbootstrap.com/
+        And go to Get Started
+        Get "Starter template" code!
+    -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <style>
+        .border-dashed {
+            border-bottom: 1px dashed rgb(185, 185, 185);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container my-3">
+        <div class="row">
+
+            <!-- First column -->
+            <div class="col-lg-3 col-md-4">
+
+                <div class="card text-center bg-body-tertiary" style="border:0px; border-radius: 0px;">
+                    <img src="images/henry.jpg" class="card-img-top" style="width: 100%;">
+                    <div class="card-body">
+                        <h5 class="card-title text-secondary" style="margin-bottom: -5px;">Joe Fox</h5>
+                        <p class="card-text">
+                            <p>I am open to new opportunities. I am available January 2021 onwards.</p>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook mx-1" viewBox="0 0 16 16" style="cursor:pointer;">
+                                    <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter mx-1" viewBox="0 0 16 16" style="cursor:pointer;">
+                                    <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334q.002-.211-.006-.422A6.7 6.7 0 0 0 16 3.542a6.7 6.7 0 0 1-1.889.518 3.3 3.3 0 0 0 1.447-1.817 6.5 6.5 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.32 9.32 0 0 1-6.767-3.429 3.29 3.29 0 0 0 1.018 4.382A3.3 3.3 0 0 1 .64 6.575v.045a3.29 3.29 0 0 0 2.632 3.218 3.2 3.2 0 0 1-.865.115 3 3 0 0 1-.614-.057 3.28 3.28 0 0 0 3.067 2.277A6.6 6.6 0 0 1 .78 13.58a6 6 0 0 1-.78-.045A9.34 9.34 0 0 0 5.026 15"/>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram mx-1" viewBox="0 0 16 16" style="cursor:pointer;">
+                                    <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin mx-1" viewBox="0 0 16 16" style="cursor:pointer;">
+                                    <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
+                                </svg>
+                            </div>
+                        </p>
+                    </div>
+                  </div>
+
+                
+                
+            </div>
+            <!-- Second column -->
+            <div class="col-lg-9 col-md-8">
+
+                <h3 class="text-secondary">Joe Fox</h3>
+                <p class="no-margin-bottom">Nulla efficitur facilisis mollis. Aliquam ullamcorper mi felis, a semper turpis laoreet in. Nulla pharetra nisl at purus pellentesque ultricies. Sed a augue condimentum, condimentum ex a, bibendum enim. Proin eget massa a velit congue interdum. Suspendisse a egestas nunc. In eu dignissim nulla, ut semper urna. Nulla ullamcorper sed est quis placerat. Aenean id sagittis lectus, consequat ultrices justo. Fusce venenatis lacinia ligula in scelerisque. Proin tincidunt diam at turpis condimentum interdum ac id magna. Sed malesuada nunc ut leo iaculis, vitae consectetur nulla consectetur. Curabitur gravida sapien sagittis congue mattis. Aenean hendrerit rhoncus magna in hendrerit.</p>
+                
+                <div class="table-responsive">
+                    <table class="table table-sm ">
+                        <tbody>
+
+                            <!-- Degree -->
+                            <tr>
+                                <td scope="row" class="border-dashed pb-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-mortarboard-fill" viewBox="0 0 16 16">
+                                        <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917z"/>
+                                        <path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466z"/>
+                                    </svg>
+                                    <h6 style="color:rgb(233, 84, 43); display: inline;">Degree:</h6>
+                                </td>
+                                <td class="border-dashed pb-4">
+                                    <h6 class="text-secondary">Master's Degrees</h6>
+                                </td>
+                            </tr>
+
+                            <!-- Experience -->
+                            <tr>
+                                <td scope="row" class="border-dashed pb-4 pt-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(228, 201, 0)" class="bi bi-gem" viewBox="0 0 16 16">
+                                        <path d="M3.1.7a.5.5 0 0 1 .4-.2h9a.5.5 0 0 1 .4.2l2.976 3.974c.149.185.156.45.01.644L8.4 15.3a.5.5 0 0 1-.8 0L.1 5.3a.5.5 0 0 1 0-.6zm11.386 3.785-1.806-2.41-.776 2.413zm-3.633.004.961-2.989H4.186l.963 2.995zM5.47 5.495 8 13.366l2.532-7.876zm-1.371-.999-.78-2.422-1.818 2.425zM1.499 5.5l5.113 6.817-2.192-6.82zm7.889 6.817 5.123-6.83-2.928.002z"/>
+                                      </svg>
+                                    <h6 style="color:rgb(228, 201, 0); display: inline;">Exp.:</h6>
+                                </td>
+                                <td class="border-dashed pb-4 pt-2">
+                                    <h6 class="text-secondary">10 Year in Technology</h6>
+                                </td>
+                            </tr>
+
+                            <!-- Courses -->
+                            <tr>
+                                <td scope="row" class="border-dashed pb-4 pt-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(228, 84, 0)" class="bi bi-file-earmark" viewBox="0 0 16 16">
+                                        <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5z"/>
+                                      </svg>
+                                    <h6 style="color:rgb(228, 84, 0); display: inline;">Courses:</h6>
+                                </td>
+                                <td class="border-dashed pb-4 pt-2">
+                                    <h6 class="text-secondary">Software, Hardware, Mathematics</h6>
+                                </td>
+                            </tr>
+
+                            <!-- Address -->
+                            <tr>
+                                <td scope="row" class="border-dashed pb-4 pt-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(4, 181, 10)" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                        <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
+                                      </svg>
+                                    <h6 style="color:rgb(4, 181, 10); display: inline;">Address:</h6>
+                                </td>
+                                <td class="border-dashed pb-4 pt-2">
+                                    <h6 class="text-secondary">789 Sunshine Lane, St. Paul, Minnesota, USA</h6>
+                                </td>
+                            </tr>
+
+                            <!-- Phone -->
+                            <tr>
+                                <td scope="row" class="border-dashed pb-4 pt-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(200, 0, 255)" class="bi bi-phone" viewBox="0 0 16 16">
+                                        <path d="M11 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+                                        <path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
+                                      </svg>
+                                    <h6 style="color:rgb(200, 0, 255); display: inline;">Phone:</h6>
+                                </td>
+                                <td class="border-dashed pb-4 pt-2">
+                                    <h6 class="text-secondary">612 555 1234</h6>
+                                </td>
+                            </tr>
+
+                            <!-- Email -->
+                            <tr>
+                                <td scope="row" class="border-dashed pb-4 pt-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(255, 0, 208)" class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                                        <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z"/>
+                                      </svg>
+                                    <h6 style="color:rgb(255, 0, 208); display: inline;">Email:</h6>
+                                </td>
+                                <td class="border-dashed pb-4 pt-2">
+                                    <h6 class="text-secondary ">
+                                        <a href='mailto:joe.fox@example.com' style="text-decoration: none; color:rgb(27, 160, 255);">joe.fox@example.com</a>
+                                    </h6>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+
+                <h6 class="text-secondary">Professional Skills</h6>
+
+                <div>
+                    <!-- Positive Behaviors -->
+                    <div class="row">
+                        <div class="col-6">
+                        <h6 class="text-start text-secondary">Positive Behaviors</h6>
+                        </div>
+                        <div class="col-6">
+                        <h6 class="text-end text-secondary">40%</h6>
+                        </div>
+                    </div>
+                    <div class="progress mb-4" role="progressbar" aria-label="Success example" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar bg-primary" style="width: 40%"></div>
+                    </div>
+                    <!-- Teamworking Abilities -->
+                    <div class="row">
+                        <div class="col-6">
+                        <h6 class="text-start text-secondary">Teamworking Abilities</h6>
+                        </div>
+                        <div class="col-6">
+                        <h6 class="text-end text-secondary">50%</h6>
+                        </div>
+                    </div>
+                    <div class="progress mb-4" role="progressbar" aria-label="Success example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar bg-danger" style="width: 50%"></div>
+                    </div>
+                    <!-- Time Management -->
+                    <div class="row">
+                        <div class="col-6">
+                        <h6 class="text-start text-secondary">Time Management</h6>
+                        </div>
+                        <div class="col-6">
+                        <h6 class="text-end text-secondary">60%</h6>
+                        </div>
+                    </div>
+                    <div class="progress mb-4" role="progressbar" aria-label="Success example" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar bg-success" style="width: 60%"></div>
+                    </div>
+                    <!-- Excellent Communication  -->
+                    <div class="row">
+                        <div class="col-6">
+                        <h6 class="text-start text-secondary">Excellent Communication </h6>
+                        </div>
+                        <div class="col-6">
+                        <h6 class="text-end text-secondary">80%</h6>
+                        </div>
+                    </div>
+                    <div class="progress mb-4" role="progressbar" aria-label="Success example" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar bg-warning" style="width: 80%"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
