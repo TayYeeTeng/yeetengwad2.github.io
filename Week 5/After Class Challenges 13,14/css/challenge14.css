@@ -1,0 +1,14 @@
+/* FEEL FREE TO EDIT THIS CSS FILE AS DEEMED NECESSARY */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.video {
+    color:white;
+    background-color: grey;
+    border-radius: 30px;
+    padding: 0 5px;
+    font-size: 15px;
+}
